@@ -1,15 +1,21 @@
 package main
 
 import (
+	"os"
+
 	"github.com/athompson11/LinkShortener/src/database"
 	"github.com/athompson11/LinkShortener/src/endpoints/creation"
 	"github.com/athompson11/LinkShortener/src/endpoints/link"
+
 	"github.com/gin-gonic/gin"
+
+	"github.com/joho/godotenv"
 )
 
 func main() {
-	database.InitDatabase() // Initialize the database connection
-	defer database.DBConn.Close()
+	godotenv.Load()
+	db.InitDatabase(os.Getenv("DATABASE_LOCATION")) // Initialize the database connection
+	defer db.DBConn.Close()
 	r := gin.Default()
 
 	link.RegisterLinkRoutes(r)

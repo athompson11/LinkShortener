@@ -1,18 +1,17 @@
-package database
+package db
 
 import (
 	"database/sql"
 	"log"
-	"os"
 
 	_ "github.com/mattn/go-sqlite3"
 )
 
 var DBConn *sql.DB
 
-func InitDatabase() {
+func InitDatabase(databaseLocation string) {
 	var err error
-	DBConn, err = sql.Open("sqlite3", os.Getenv("DATABASE_LOCATION"))
+	DBConn, err = sql.Open("sqlite3", databaseLocation)
 	if err != nil {
 		log.Fatal(err)
 	}
