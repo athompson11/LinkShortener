@@ -4,8 +4,6 @@
 
 This is a simple API that can be used as a backend for a link shortener website.
 
-`Authorization: Bearer <YOUR_API_KEY>`
-
 ## Endpoints
 
 ### POST /create
