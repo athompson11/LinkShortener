@@ -1,10 +1,11 @@
-package main
+package link
 
 import (
 	"database/sql"
 	"log"
 	"net/http"
 
+	"github.com/athompson11/LinkShortener/src/database"
 	"github.com/gin-gonic/gin"
 )
 
@@ -20,7 +21,7 @@ func redirectCreation(c *gin.Context) {
 
 func getLink(c *gin.Context) {
 	givenid := c.Param("id")
-	row := DBConn.QueryRow("SELECT link FROM links WHERE LinkID = ?", givenid)
+	row := database.DBConn.QueryRow("SELECT link FROM links WHERE LinkID = ?", givenid)
 
 	var redirectlink string
 	err := row.Scan(&redirectlink)
