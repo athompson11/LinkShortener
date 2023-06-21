@@ -1,50 +1,52 @@
-Link Shortener API
-Introduction
+# Link Shortener API
+
+## Introduction
 
 This is a simple API that can be used as a backend for a link shortener website.
 
-Authorization: Bearer <YOUR_API_KEY>
+## Endpoints
 
-Endpoints
-
-
-POST /create
+### POST /create
 
 This endpoint allows you to create a short link from a long URL.
-Request
-    Body:
 
-    json
+**Request**
 
-    {
-      "linkid": "a-memorable-link-identifier",
-      "link": "a-website.com",
-      "createdat": "current-time-in-iso"
-    }
+```
+Body:
 
-Response
+json
 
-    Status: 200 OK
-    Body:
+{
+  "linkid": "a-memorable-link-identifier",
+  "link": "a-website.com",
+  "createdat": "current-time-in-iso"
+}
+```
 
-    json
+**Response**
 
-    {
-     "status": "Created"
-    }
+```
+Status: 200 OK
+Body:
 
-Retrieve a Shortened URL
+json
 
-bash
+{
+ "status": "Created"
+}
+```
 
-GET /link/:id
+### GET /link/:id
 
 This endpoint allows you to retrieve a redirect to a previously shortened URL. Intended for browsers.
-Request
 
-Response
+**Request**
 
-    Status: 301 MOVED PERMANENTLY
-    Body:
-	"The link"
+**Response**
 
+```
+Status: 301 MOVED PERMANENTLY
+Body:
+"The link"
+```
