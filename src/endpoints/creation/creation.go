@@ -64,5 +64,6 @@ func createLink(c *gin.Context) {
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Database error"})
 	}
-	c.JSON(http.StatusOK, gin.H{"status": "Created"})
+
+	c.JSON(http.StatusOK, gin.H{"status": "Created", "link": "https://shortener.mymanyprojects.dev/link/" + link.LinkID})
 }

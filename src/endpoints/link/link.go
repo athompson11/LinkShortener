@@ -16,8 +16,8 @@ func RegisterLinkRoutes(r *gin.Engine) {
 }
 
 func redirectCreation(c *gin.Context) {
-	// If user goes to /link without an ID, redirect to create
-	c.Redirect(http.StatusMovedPermanently, "/create")
+	// If user goes to /link without an ID, redirect to index
+	c.Redirect(http.StatusMovedPermanently, "shortener.mymanyprojects.dev")
 }
 
 func getLink(c *gin.Context) {

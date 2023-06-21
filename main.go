@@ -16,6 +16,7 @@ func main() {
 	godotenv.Load()
 	db.InitDatabase(os.Getenv("DATABASE_LOCATION")) // Initialize the database connection
 	defer db.DBConn.Close()
+	gin.SetMode(gin.ReleaseMode)
 	r := gin.Default()
 
 	link.RegisterLinkRoutes(r)
